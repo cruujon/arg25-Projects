@@ -12,9 +12,9 @@ _A short, descriptive name of your project._
 
 ## Team
 
-- Team/Individual Name: Keita Kuroiwa 
-- GitHub Handles: cruujon
-- Devfolio Handles: cruujon
+- Team/Individual Name: Legacy Protocol
+- GitHub Handles: cruujon, cooldev1337
+- Devfolio Handles: cruujon, web3path
 
 ## Project Description
 
