@@ -1,14 +1,7 @@
-+# ARG25 Project Submission Template
-
-Welcome to Invisible Garden- ARG25.
-
-Each participant or team will maintain this README throughout the program.  
-You'll update your progress weekly **in the same PR**, so mentors and reviewers can track your journey end-to-end.
-
-## Project Title : ### Legacy Protocol"
+## Project Title : ### Heirloom Inheritance Protocol"
 
 _A short, descriptive name of your project._
-— a network for preserving and passing on human intentions.
+— A tool that allows people who wish to preserve cultural assets or secret knowledge to securely and permanently pass them down to others across generations.
 
 ## Team
 
@@ -16,15 +9,6 @@ _A short, descriptive name of your project._
 - GitHub Handles @cruujon,  @DaroMacs , @masaun
 - Devfolio Handles: cruujon
 
-## Project Description
-
-# Heirloom Inheritance Protocol: Product Document
-
-## Concept
-
-A tool that allows people who wish to preserve cultural assets or secret knowledge to securely and permanently pass them down to others across generations.
-
----
 
 ## Problems in the Field and Product Value
 
