@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+<img width="849" height="495" alt="image" src="https://github.com/user-attachments/assets/1fff3b36-aea7-4ee3-a5c6-366d47b6fa67" /><<<<<<< HEAD
 =======
 # ARG25 Project Submission Template
 
@@ -183,6 +183,58 @@ teamed up with @DaroMacs , @masaun
 ### Week 2 (ends Nov 7)
 
 **Goals:** fix the whole product design and make a rough decision tech stack
+
+**Progress Summary:** 
+Frontend MVP
+
+Scaffold the Next.js + Wagmi + viem application and styling components.
+
+Integrate wallet connection, transaction confirmation, and basic lineage visualization.
+
+Simulate IPFS integration by allowing users to input placeholder CIDs.
+
+Record one complete flow on testnet (registration → inheritance → lineage display).
+
+Documentation
+
+Add architecture diagram and stack summary to /docs/ARCHITECTURE.md.
+
+Update README with contract address, tech stack, and project usage instructions.
+
+Stack Overview
+
+Blockchain: Arbitrum Sepolia (EVM-compatible)
+
+Smart Contracts: Solidity, Arbitrum Stylus (for testing & deployment)
+
+Frontend: Next.js 14, TypeScript, Wagmi, viem, shadcn/ui
+
+Storage: IPFS (placeholder CID references for now)
+
+Tooling: pnpm, dotenv, eslint/prettier
+
+System Architecture (MVP)
++------------------------+
+|  Frontend (Next.js)    |
+|  - Register Secret     |
+|  - Transfer Inheritance|
+|  - View Lineage        |
++-----------+------------+
+            |
+            | (CID hash only)
+            v
++------------------------+
+|  Smart Contract (EVM)  |
+|  - Heirloom Registry   |
+|  - Lineage Events      |
++-----------+------------+
+            |
+            | (Encrypted data stored off-chain)
+            v
++------------------------+
+|     IPFS / Arweave     |
+|  - Encrypted payloads  |
++------------------------+
 
 **Progress Summary:**
 we fixed core tech stack and whole architecture to implement at invisible Garden. we already start buiding actual MVP
