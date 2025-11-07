@@ -1,5 +1,3 @@
-<img width="849" height="495" alt="image" src="https://github.com/user-attachments/assets/1fff3b36-aea7-4ee3-a5c6-366d47b6fa67" /><<<<<<< HEAD
-=======
 # ARG25 Project Submission Template
 
 Welcome to Invisible Garden- ARG25.
