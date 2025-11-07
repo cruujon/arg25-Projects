@@ -212,27 +212,9 @@ Storage: IPFS (placeholder CID references for now)
 Tooling: pnpm, dotenv, eslint/prettier
 
 System Architecture (MVP)
-+------------------------+
-|  Frontend (Next.js)    |
-|  - Register Secret     |
-|  - Transfer Inheritance|
-|  - View Lineage        |
-+-----------+------------+
-            |
-            | (CID hash only)
-            v
-+------------------------+
-|  Smart Contract (EVM)  |
-|  - Heirloom Registry   |
-|  - Lineage Events      |
-+-----------+------------+
-            |
-            | (Encrypted data stored off-chain)
-            v
-+------------------------+
-|     IPFS / Arweave     |
-|  - Encrypted payloads  |
-+------------------------+
+
+<img width="379" height="408" alt="image" src="https://github.com/user-attachments/assets/2867107c-252e-4e49-91b5-1c2b46b94335" />
+
 
 **Progress Summary:**
 we fixed core tech stack and whole architecture to implement at invisible Garden. we already start buiding actual MVP
