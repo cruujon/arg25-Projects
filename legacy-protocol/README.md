@@ -1,4 +1,4 @@
-# ARG25 Project Submission Template
++# ARG25 Project Submission Template
 
 Welcome to Invisible Garden- ARG25.
 
@@ -13,33 +13,84 @@ _A short, descriptive name of your project._
 ## Team
 
 - Team/Individual Name: Legacy Protocol
-- GitHub Handles: cruujon, cooldev1337
-- Devfolio Handles: cruujon, web3path
+- GitHub Handles @cruujon,  @DaroMacs , @masaun
+- Devfolio Handles: cruujon
 
 ## Project Description
 
-![🔷](https://discord.com/assets/764d6cc18dee3e92.svg)The underlying mindset that shapes my product: Many praise Ethereum as a persistent, immutable database — a place where data can live forever. But if we ask what deserves to live forever, or what humanity should find centuries from now as proof we once lived, it isn't transactions or tokens — it's our thoughts and beliefs. Humans long to leave something behind, to be remembered as beings of intent and meaning. This protocol fulfills that: preserving not what we owned, but what we believed — the essence of who we are — and passing it on, verifiably, to future generations. There's no reliable way to prove a message truly came from its author. Videos and letters can be forged. But through a credible, neutral system like Ethereum, we can record messages immutably — letting anyone forever trust the words of those who came before. ![🔷](https://discord.com/assets/764d6cc18dee3e92.svg)The protocol has 3 main functions:(not finalized yet tho) 0 . A system that lets users attach belief-based labels to their wallets — visible signals of what they stand for. These tags allow both people and protocols to choose who they interact with and under what principles. DeFi apps or voting platforms could, for instance, favor wallets tagged "Ethereum decentralization maximalist" or "Solana efficiency-oriented pragmatist." Unlike the implicit filtering we see through NFT ownership or token-gating, this system makes alignment explicit, voluntary, and user-owned — enabling trust and coordination built on shared conviction.
+# Heirloom Inheritance Protocol: Product Document
 
-1. Private Heirline (Encrypted Legacy Messages),
+## Concept
 
-Users can securely store and send encrypted messages or data to specific trusted contacts using protocols like XMTP or Lit Protocol. The content remains hidden until certain conditions are met — for example, a preset time period, verified identity checks, or guardian confirmations. Only the designated recipients can decrypt and access the message, ensuring privacy-preserving inheritance without any centralized control.
+A tool that allows people who wish to preserve cultural assets or secret knowledge to securely and permanently pass them down to others across generations.
 
-_What are you building and why does it matter? Explain the core problem and your proposed solution._
+---
 
-2. Public Baton Line (Anonymous Ideological Relay),
+## Problems in the Field and Product Value
 
-Users can also leave anonymous, onchain "thought capsules" — short statements, ideas, or reflections meant to be discovered and carried forward by future generations. Each relay passes the "baton" of an idea to the next participant, forming a visible lineage of influence while the message content itself remains encrypted. Over time, this creates a semantic web of inheritance — a living archive of human thought that evolves across identities and epochs.
+### Field Situation
 
-## Tech Stack
+Currently, those who want to pass down their knowledge or skills have no choice but to share secret information directly—either orally or on paper.
 
-_List all the technologies, frameworks, and tools you are using._
+There is no verifiable way to record *who passed it to whom*, which makes the extinction of such knowledge a real risk.
 
-- Ethereum
-- EAS
-- AVS
-- hats protocol
-- XMTP
+### Therefore, We Propose
 
+By recording *who (wallet)* has passed their knowledge to *whom (wallet)* on the blockchain, we can preserve the lineage and history of these successions permanently.
+
+At the same time, by using **an encrypted P2P messaging protocol** such as XMTP and **distributed storage** such as IPFS, we enable private and secure inheritance of valuable information across generations.
+
+- Secret information can be inherited securely from one wallet address to another.
+- As a result, traditional cultural assets and valuable private knowledge can be preserved and carried forward through time.
+
+---
+
+## Product Purpose (Purpose)
+
+To make the process of inheriting personal knowledge and skills permanently traceable as a trustworthy record.
+
+---
+
+## Scope
+
+✔ Recording the history of inheritance on-chain
+
+✔ Encrypted transfer of secret data via XMTP
+
+---
+
+## Target Users
+
+Individuals who wish to pass down their valuable private knowledge to the next generation **without making it public**.
+
+Examples:
+
+- A restaurant owner who possesses a secret recipe (a trade secret) but has no successor.
+- A craftsman who holds local traditional techniques or special know-how that cannot be publicly shared.
+
+---
+
+## Functional Requirements
+
+### Essential Features
+
+- **Encrypted P2P messaging** that grants a specific wallet address access to secret information and the right to inherit it to the next generation.
+- **Distributed storage** (e.g., IPFS or Arweave) to securely hold secret information, with token-gated access control.
+- **Blockchain-based record** that logs *who transferred access rights (NFTs)* for the stored secret information to whom, ensuring an immutable record of succession.
+
+---
+
+## MVP Success Criteria (Definition of Completion)
+
+### Short-Term (Within the Hackathon) – Mandatory
+
+- Able to record at least one **inheritance event** from one wallet address to another on-chain (and obtain a Tx hash).
+- Successful **encrypted message exchange** between two wallets (at least one round trip).
+- A user interface where the user can clearly see that the inheritance has been completed.
+
+### If Possible (Optional)
+
+- Ability to visually verify within the wallet that the user holds the inherited right or that inheritance has occurred, represented as an NFT
 ## Objectives
 
 _What are the specific outcomes you aim to achieve by the end of ARG25?_
@@ -50,15 +101,18 @@ get to the grants and focus on consistent building and find  a PMF
 
 ### Week 1 (ends Oct 31)
 
-**Goals:** team up & bouncing idea off
+**Goals:** team up & bouncing idea off 
 
 **Progress Summary:** 
+teamed up with @DaroMacs , @masaun
+
 
 ### Week 2 (ends Nov 7)
 
 **Goals:** fix the whole product design and make a rough decision tech stack
 
 **Progress Summary:**
+fixed basic tech stack. 
 
 ### 🗓️ Week 3 (ends Nov 14)
 
@@ -71,6 +125,7 @@ get to the grants and focus on consistent building and find  a PMF
 _After Week 3, summarize your final state: deliverables, repo links, and outcomes._
 
 - **Main Repository Link:** 
+
 - **Demo / Deployment Link (if any):**
 - **Slides / Presentation (if any):**
 
