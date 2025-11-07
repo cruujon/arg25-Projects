@@ -34,11 +34,13 @@ Currently, those who want to pass down their knowledge or skills have no choice 
 
 There is no verifiable way to record *who passed it to whom*, which makes the extinction of such knowledge a real risk.
 
+Traditional craftsmanship is disappearing globally, not only because knowledge is lost, but because its transmission is invisible to institutions and future generations. By anchoring these acts of transmission on-chain — with auditable records and public funding mechamism— we make cultural succession visible. This creates traceable evidence that can be used by local governments, museums, and preservation programs to recognize, fund, and protect these practices in a transparent and community-controlled way.
+
 ### Therefore, We Propose
 
 By recording *who (wallet)* has passed their knowledge to *whom (wallet)* on the blockchain, we can preserve the lineage and history of these successions permanently.
 
-At the same time, by using **an encrypted P2P messaging protocol** such as XMTP and **distributed storage** such as IPFS, we enable private and secure inheritance of valuable information across generations.
+At the same time, by using **client-side encryption** and **distributed storage** (e.g., IPFS), we enable private and secure inheritance of valuable information across generations—without making the contents public.
 
 - Secret information can be inherited securely from one wallet address to another.
 - As a result, traditional cultural assets and valuable private knowledge can be preserved and carried forward through time.
@@ -55,7 +57,9 @@ To make the process of inheriting personal knowledge and skills permanently trac
 
 ✔ Recording the history of inheritance on-chain
 
-✔ Encrypted transfer of secret data via XMTP
+✔ Encrypted storage of secret data off-chain
+
+✔ Wallet-to-wallet handoff via **signed, encrypted payloads** (no fixed messaging stack required)
 
 ---
 
@@ -74,9 +78,12 @@ Examples:
 
 ### Essential Features
 
-- **Encrypted P2P messaging** that grants a specific wallet address access to secret information and the right to inherit it to the next generation.
-- **Distributed storage** (e.g., IPFS or Arweave) to securely hold secret information, with token-gated access control.
-- **Blockchain-based record** that logs *who transferred access rights (NFTs)* for the stored secret information to whom, ensuring an immutable record of succession.
+- **Encrypted handoff**: grant a specific wallet address the ability to decrypt the secret and (optionally) pass it onward.
+    - Mechanism: client-side symmetric encryption (e.g., AES-GCM) + **key wrap** to the successor’s public key (e.g., X25519/ECDH → AES-GCM key wrap).
+    - Delivery: export a **signed JSON/QR/bundle** that the successor can receive via any secure channel (download link, QR scan, file transfer).
+- **Distributed storage**: store the encrypted content on IPFS/Arweave; only a **CID/hash** is ever referenced on-chain.
+- **Blockchain-based record**: record *who transferred inheritance rights to whom* (lineage events) as immutable on-chain events.
+    - Optional: represent current right-holder as an NFT for wallet visibility.
 
 ---
 
@@ -84,14 +91,83 @@ Examples:
 
 ### Short-Term (Within the Hackathon) – Mandatory
 
-- Able to record at least one **inheritance event** from one wallet address to another on-chain (and obtain a Tx hash).
-- Successful **encrypted message exchange** between two wallets (at least one round trip).
-- A user interface where the user can clearly see that the inheritance has been completed.
+- Record at least one **inheritance event** from one wallet to another on-chain and show the Tx hash.
+- Produce and deliver a **signed, encrypted payload** (download or QR) from originator to successor, and **successfully decrypt** it on the successor’s device.
+- A UI that clearly shows “inheritance completed” and renders the on-chain lineage (A → B) with timestamps.
 
 ### If Possible (Optional)
 
-- Ability to visually verify within the wallet that the user holds the inherited right or that inheritance has occurred, represented as an NFT
-## Objectives
+- Show an NFT in the successor’s wallet that represents the inherited right.
+
+---
+
+## Architecture
+
+### Blockchain
+
+- **Arbitrum** (testnet) → public ledger for inheritance records.
+- **Registry / (optional) Rights NFT** smart contracts → represent and guarantee inheritance rights; emit `SecretRegistered` / `Inherited` events.
+
+### Delivery Layer (no XMTP)
+
+- **Signed, encrypted payloads** handed off via any channel (download URL with short expiry, QR code, secure file transfer, etc.).
+- Payload includes: `{ secretId, cid, wrappedKey, senderSignature, createdAt }`.
+
+### Storage
+
+- **IPFS (Pinning service)** for encrypted content; on-chain stores only `cidHash`.
+- (Optional) **Arweave** for long-term persistence.
+
+---
+
+---
+
+## Constraints
+
+### Limitations (Out of Scope for This MVP)
+
+- Strict, audited file-encryption UX (use well-known primitives but keep UX simple).
+- Policy-based automatic re-encryption (e.g., PRE / Lit) — only mention as a future track.
+
+### Assumptions
+
+- A wallet address represents the intended individual successor.
+- Secret data is encrypted client-side and never visible to the application backend or the blockchain.
+
+---
+
+## Minimal Contract Surface (for reference)
+
+- `registerSecret(bytes32 cidHash, bytes meta) returns (uint256 secretId)`
+- `inherit(uint256 secretId, address to)`
+- `event SecretRegistered(uint256 indexed secretId, address indexed owner, bytes32 cidHash, uint256 time)`
+- `event Inherited(uint256 indexed secretId, address indexed from, address indexed to, uint256 time)`
+
+## User Flow
+
+## User Flow (MVP)
+
+### Flow 1 — Register a Secret (Originator)
+
+1. **Encrypt** (client-side): generate `symKey (AES-GCM)`, then `ciphertext = Encrypt(symKey, plaintext)`.
+2. **Store**: upload `ciphertext` to IPFS → get `cid`; compute `cidHash = keccak256(cid)`.
+3. **Commit**: call `Registry.registerSecret(cidHash, meta)` → event `SecretRegistered(secretId, owner, cidHash, time)`.
+
+### Flow 2 — Handoff & Lineage Record (Originator → Successor)
+
+1. **Key wrap**: derive shared secret with successor’s public key (X25519/ECDH) and **wrap `symKey`** (AES-GCM).
+2. **Bundle**: create a signed payload `{ secretId, cid, wrappedKey, senderSignature }`.
+3. **Deliver**: show **QR** or provide a **download button** (the file can be transferred over any channel).
+4. **On-chain lineage**: call `Registry.inherit(secretId, to=Successor)` → event `Inherited(secretId, from, to, time)`.
+
+### Flow 3 — Receive & Decrypt (Successor)
+
+1. **Import**: the successor loads the bundle (scan QR or upload the file).
+2. **Unwrap**: decrypt `wrappedKey` with successor’s private key → recover `symKey`.
+3. **Fetch & Decrypt**: pull `ciphertext` by `cid` from IPFS, `Decrypt(symKey, ciphertext)` locally.
+4. **UI**: show “Decrypted ✅” and render the lineage `A → B` from events.
+
+
 
 _What are the specific outcomes you aim to achieve by the end of ARG25?_
 
@@ -112,7 +188,7 @@ teamed up with @DaroMacs , @masaun
 **Goals:** fix the whole product design and make a rough decision tech stack
 
 **Progress Summary:**
-fixed basic tech stack. 
+we fixed core tech stack and whole architecture to implement at invisible Garden. we already start buiding actual MVP
 
 ### 🗓️ Week 3 (ends Nov 14)
 
@@ -125,9 +201,12 @@ fixed basic tech stack.
 _After Week 3, summarize your final state: deliverables, repo links, and outcomes._
 
 - **Main Repository Link:** 
+https://github.com/cruujon/arg25-Projects/branches
 
 - **Demo / Deployment Link (if any):**
+buiding it right now. 
 - **Slides / Presentation (if any):**
+https://www.figma.com/make/rSGqrMpI7cr1QmmQGiirqD/Create-Presentation-Material?node-id=0-1&t=c1t97nFrVYKBo0kE-1
 
 ## 🧾 Learnings
 
