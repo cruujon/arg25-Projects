@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+# ARG25 Project Submission Template
+
+Welcome to Invisible Garden- ARG25.
+
+Each participant or team will maintain this README throughout the program.  
+You'll update your progress weekly **in the same PR**, so mentors and reviewers can track your journey end-to-end.
+
+>>>>>>> b927b64 (Update Legacy Protocol README content)
 ## Project Title : ### Heirloom Inheritance Protocol"
 
 _A short, descriptive name of your project._
@@ -104,8 +114,11 @@ Examples:
 
 ---
 
+<<<<<<< HEAD
 ---
 
+=======
+>>>>>>> b927b64 (Update Legacy Protocol README content)
 ## Constraints
 
 ### Limitations (Out of Scope for This MVP)
@@ -202,4 +215,3 @@ _If you plan to continue development beyond ARG25, what's next?_
 
 _This template is part of the [ARG25 Projects Repository](https://github.com/invisible-garden/arg25-projects)._  
 _Update this file weekly by committing and pushing to your fork, then raising a PR at the end of each week._
-
