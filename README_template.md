@@ -232,94 +232,48 @@ Contract: Inheritance
 Address: (fill after deployment)
 Network: Arbitrum Sepolia
 
+```
+---
 
-Demo
 
-Repository:
+
+# Demo
+
+**Main Repository Link**  
 https://github.com/Heirloom-Inheritance-Protocol
 
-Live Demo:
+**Demo / Deployment Link**  
 https://heirloom-inheritance-protocol.vercel.app/dashboard
 
-Slides:
+**Slides / Presentation**  
 https://www.figma.com/make/rSGqrMpI7cr1QmmQGiirqD/Create-Presentation-Material
 
-Objectives
+---
 
-By the end of ARG25, the following were achieved:
+# Objectives
 
-On-chain inheritance event (owner → successor).
+By the end of ARG25, the following core objectives were achieved:
 
-Successful encrypted file upload to IPFS.
+- Record at least one *inheritance event* (owner → successor) on-chain and show the transaction hash.
+- Successfully upload an encrypted file to IPFS and store only the CID on-chain.
+- Ensure that only the designated successor wallet can decrypt the encrypted file.
+- Provide a clear UI workflow:  
+  “inheritance created → inheritance claimable by successor → inheritance claimed → decrypted.”
 
-Successor-only decryption via connected wallet.
+---
 
-UI for creation, verification, claim, and lineage display.
+# Weekly Progress
 
-Weekly Progress
-Week 1
+## Week 1 (ends Oct 31)
+**Goals:**  
+Team formation and early ideation.
 
-Goals: Team forming & idea exploration
+**Progress Summary:**  
+Teamed up with @DaroMacs and @masaun.  
+Explored initial product directions and cultural preservation use cases.
 
-Summary: Teamed up with @DaroMacs, @masaun
+---
 
-Week 2
-
-Goals: Finalize architecture & tech stack
-
-Summary:
-
-Scaffolded frontend
-
-Wallet integration + lineage prototype
-
-Designed encryption/IPFS/contract flow
-
-Added architecture documentation
-
-Week 3
-
-Goals: Complete MVP
-
-Summary:
-
-Contract deployed
-
-IPFS integration live
-
-End-to-end inheritance (encrypt → upload → register → decrypt)
-
-Final Wrap-Up
-
-MVP fully functional
-
-Contract + frontend deployed
-
-Full E2E “inheritance → claim → decrypt” demo works
-
-Limitations identified for future work (key rotation, stronger crypto)
-
-Learnings
-
-Verified feasibility of a minimal inheritance protocol with client-side crypto + IPFS + EVM.
-
-Identified security limitations of address-based key derivation.
-
-Learned to translate abstract cultural preservation concepts into concrete dApp UX and cryptographic flows.
-
-Next Steps
-Short Term
-
-Mainnet / multi-L2 deployment
-
-Improve encryption model (e.g., move from PBKDF2 to ECDH in next revision)
-
-Integrate EAS for composable on-chain lineage
-
-Medium Term
-
-AI features for cultural importance scoring & tag generation
-
-Matching successors and inheritances
-
-Funding mechanisms via Gitcoin stack & partnerships with local governments
+## Week 2 (ends Nov 7)
+**Goals:**  
+Finalize the core architecture, define encryption and storage flows, and choose the
