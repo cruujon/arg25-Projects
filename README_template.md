@@ -171,7 +171,6 @@ Additional risks:
 ```
 
 
-```
 ---
 
 # Encryption & Decryption Flow (MVP)
@@ -232,7 +231,6 @@ Contract: Inheritance
 Address: (fill after deployment)
 Network: Arbitrum Sepolia
 
-```
 ---
 
 
