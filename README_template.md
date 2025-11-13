@@ -225,8 +225,7 @@ Security limitations:
 ---
 
 # Contract Addresses
-
-```txt
+txt
 Contract: Inheritance
 Address: (fill after deployment)
 Network: Arbitrum Sepolia
