@@ -273,3 +273,68 @@ Explored initial product directions and cultural preservation use cases.
 ## Week 2 (ends Nov 7)
 **Goals:**  
 Finalize the core architecture, define encryption and storage flows, and choose the
+
+## Week 3 (ends Nov 14)
+**Goals:**  
+Complete the MVP development and deploy all components.
+
+**Progress Summary:**
+- Smart contract deployed to Arbitrum Sepolia.  
+- IPFS integration with actual encrypted blobs is live.  
+- Full end-to-end inheritance flow implemented:
+  encrypt → upload → register → claim → decrypt.  
+- Users can now experience the full MVP on the live deployment.
+
+---
+
+# Final Wrap-Up
+
+### Deliverables
+- Fully functional MVP  
+- On-chain contract  
+- Live frontend with complete user flows  
+- Encrypted inheritance mechanism  
+- Lineage visibility and basic UI
+
+### Technical Outcomes
+- Verified viability of client-side AES-256-GCM encryption + PBKDF2 key derivation tied to successor wallet address.
+- Implemented a minimal yet secure pipeline combining IPFS, Ethereum smart contracts, and browser crypto.
+- Identified areas for improvement (key rotation, ECDH upgrade, multi-layered permissions).
+
+### Repository / Demo
+- **Repository:** https://github.com/Heirloom-Inheritance-Protocol  
+- **Live Demo:** https://heirloom-inheritance-protocol.vercel.app/dashboard  
+- **Slides:** https://www.figma.com/make/rSGqrMpI7cr1QmmQGiirqD/Create-Presentation-Material
+
+---
+
+# Learnings
+
+During ARG25, we gained:
+
+- A deeper understanding of the constraints and possibilities of client-side encryption in browser-based dApps.
+- Practical insights into connecting decentralized storage (IPFS) with composable smart contract metadata.
+- A framework for turning abstract cultural-preservation concepts into a minimal but working cryptographic protocol.
+- Recognition of the limitations of address-based key derivation and the need for future ECDH-based upgrades.
+
+---
+
+# Next Steps
+
+## Short Term
+- Deploy to mainnet and expand across multiple L2s.
+- Upgrade encryption model (e.g., migrate from PBKDF2 → ECDH-based key agreement).
+- Integrate with EAS so other protocols can reuse inheritance lineage permissionlessly.
+
+## Medium Term
+- **AI Integration**
+  - Automatically estimate cultural/economic importance scores for each inheritance.
+  - Auto-tag inherited data for better discoverability.
+  - Match inheritors and successors algorithmically.
+
+- **Funding Mechanisms**
+  - Integrate Gitcoin stack for donation and grant-based preservation funding.
+  - Run funding rounds for cultural assets.
+  - Collaborate with local governments and cultural institutions to test real-world deployments.
+
+---
