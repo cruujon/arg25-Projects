@@ -272,7 +272,33 @@ Explored initial product directions and cultural preservation use cases.
 
 ## Week 2 (ends Nov 7)
 **Goals:**  
-Finalize the core architecture, define encryption and storage flows, and choose the
+Finalize the core architecture, define encryption and storage flows, and choose the tech stack.
+
+**Progress Summary:**
+
+### Frontend MVP
+- Scaffolded a Next.js + Wagmi + viem application.
+- Integrated wallet connection and basic transaction handling.
+- Built initial UI for uploading PDFs and showing inheritance lineage.
+- Implemented placeholder IPFS integration to simulate CID workflows.
+
+### Documentation
+- Added system architecture diagrams to `/docs/ARCHITECTURE.md`.
+- Updated README with contract address placeholders, stack overview, and usage instructions.
+
+### Tech Stack Overview
+- **Blockchain:** Arbitrum Sepolia  
+- **Smart Contracts:** Solidity  
+- **Frontend:** Next.js 14, TypeScript, Wagmi, viem, shadcn/ui  
+- **Storage:** IPFS (CID-based retrieval)  
+- **Tooling:** pnpm, dotenv, eslint/prettier  
+
+### System Architecture (MVP)
+Validated the integration model:
+- Client-side AES encryption  
+- IPFS upload via API route or client  
+- On-chain metadata  
+- Successor-only decryption  
 
 ## Week 3 (ends Nov 14)
 **Goals:**  
